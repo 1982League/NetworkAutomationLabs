@@ -31,25 +31,25 @@ Router Cork_Router01 is started
 ### 1.1. Cork_Router01's configuration
 #### Router's Interfaces
 ```bash
-hostname Cork_Router01
-
-ip domain name netlab.net
-username netlab privilege 15 password 0 netlab
-
-interface FastEthernet0/1
- ip address 192.168.20.1 255.255.255.0
+interface Loopback0
+ ip address 1.1.1.2 255.255.255.255
+!
+interface FastEthernet0/0
+ ip address 10.1.11.254 255.255.255.0
  duplex auto
  speed auto
 !
-interface Serial0/1
+interface Serial0/0
  no ip address
  shutdown
  clock rate 2000000
 !
-interface Serial0/2
+interface FastEthernet0/1
+ description Up link to Core_S1 on Gi0/0
  no ip address
  shutdown
- clock rate 2000000
+ duplex auto
+ speed auto
 !
 interface FastEthernet1/0
  no ip address
@@ -57,10 +57,7 @@ interface FastEthernet1/0
  duplex auto
  speed auto
 !
-interface Serial2/0
- no ip address
- serial restart-delay 0
-!
+
 interface Serial2/1
  ip address 8.1.1.2 255.255.255.252
  serial restart-delay 0
@@ -68,62 +65,28 @@ interface Serial2/1
 interface Serial2/2
  ip address 8.1.3.1 255.255.255.252
  serial restart-delay 0
+```
+#### Username Configuration
+```bash
+hostname Cork_Router01
 !
-interface Serial2/3
- no ip address
- shutdown
- serial restart-delay 0
+ip domain name netlab.net
+ip name-server 8.8.8.8
 !
+logging buffered 4096 critical
+logging console alerts
+enable password 7 011D0310570A04
+
+username netlab privilege 15 password 7 000A1612085A09
 ```
 
-#### Cork_Router01 Virtual Interface VLAN Configuration
+#### Default Routes
 ```bash
-interface Loopback0
- ip address 1.1.1.2 255.255.255.255
-!
-interface FastEthernet0/0
- ip address 10.1.1.1 255.255.255.0
- duplex auto
- speed auto
-!
-interface FastEthernet0/0.11
- encapsulation dot1Q 11
- ip address 10.1.11.1 255.255.255.128
-!
-interface FastEthernet0/0.20
- encapsulation dot1Q 20
- ip address 10.1.20.1 255.255.255.0
-!
-interface FastEthernet0/0.30
- encapsulation dot1Q 30
- ip address 10.1.30.1 255.255.255.0
-!
-interface FastEthernet0/0.55
- encapsulation dot1Q 55
- ip address 10.1.55.1 255.255.255.224
-!
-interface FastEthernet0/0.80
- encapsulation dot1Q 80
- ip address 10.1.80.1 255.255.255.0
-!
-interface FastEthernet0/0.100
- encapsulation dot1Q 100
- ip address 10.1.2.1 255.255.255.128
-!
-interface FastEthernet0/0.700
- encapsulation dot1Q 700
- ip address 10.1.2.129 255.255.255.128
-!
-interface FastEthernet0/0.900
- encapsulation dot1Q 900
- ip address 192.168.100.1 255.255.255.0
-!
-interface Serial0/0
- no ip address
- shutdown
- clock rate 2000000
-!
+ip forward-protocol nd
+ip route 0.0.0.0 0.0.0.0 8.1.1.1
+ip route 0.0.0.0 0.0.0.0 10.1.11.1
 ```
+
 #### OSPF Internal Routing configuration
 ```bash
 router ospf 1
@@ -152,13 +115,11 @@ router bgp 65001
  network 10.1.81.0 mask 255.255.255.0
  network 10.1.250.0 mask 255.255.255.240
  network 10.1.251.0 mask 255.255.255.240
+ network 10.10.10.0 mask 255.255.255.0
  neighbor 1.1.1.3 remote-as 65001
  neighbor 1.1.1.3 update-source Loopback0
  neighbor 8.1.1.1 remote-as 65000
  no auto-summary
-!
-ip forward-protocol nd
-ip route 0.0.0.0 0.0.0.0 8.1.1.1
 ```
 
 #### DHCP Scope configuration for virtual interfaces
@@ -211,7 +172,7 @@ ip dhcp pool GUEST_VLAN900
 ip dhcp pool Printers_VLAN80
    network 10.1.80.0 255.255.255.0
    default-router 10.1.80.1
-   domain-name netlab.net
+   domain-name wr
    dns-server 8.8.8.8
 !
 ip dhcp pool Network_Management_VLAN11
@@ -241,4 +202,5 @@ line vty 0 4
  transport input all
 !
 ntp server 188.168.3.28
+
 ```

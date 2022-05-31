@@ -25,10 +25,11 @@ Router ISP1 is started
       Serial0/1 is empty
       Serial0/2 is empty
 ```
+* [Network Topology](https://github.com/1982League/NetworkAutomationLabs/blob/main/Lab%201%20-%20Cisco/layout/Network_Lab.jpg)
+* [GNS3 Network Project file](https://github.com/1982League/NetworkAutomationLabs/tree/main/Lab%201%20-%20Cisco/GNS3%20Project)
 
 ### 1.1. ISP1's configuration
 ```bash
-
 version 12.4
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -53,7 +54,6 @@ memory-size iomem 5
 no ip icmp rate-limit unreachable
 ip cef
 !
-
 !
 ip domain name isp.net
 ip name-server 8.8.8.8
@@ -67,8 +67,12 @@ archive
   hidekeys
 !
 !
+!
+!
 ip tcp synwait-time 5
 ip scp server enable
+!
+!
 !
 !
 interface Loopback0
@@ -161,6 +165,7 @@ no cdp log mismatch duplex
 !
 !
 control-plane
+!
 !
 line con 0
  exec-timeout 0 0
