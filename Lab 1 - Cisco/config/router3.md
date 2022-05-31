@@ -1,3 +1,4 @@
+```bash
 !
 !
 version 12.4
@@ -238,3 +239,4 @@ line vty 0 4
 ntp server 188.168.3.28
 !
 end
+```
