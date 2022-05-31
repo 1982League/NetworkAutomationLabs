@@ -25,14 +25,11 @@ Router R2 is started
       Serial0/1 is empty
       Serial0/2 is empty
 ```
-The topology is as in figure below.
-
-[Lab_Topology](/Lab 1 - Cisco/layout/Network_Lab.jpg)
-## Network_Lab GNS3 Project file
-The GNS3 project file is [Network_Lab](/Lab 1 - Cisco/GNS3 Project/Network_Lab.gns3).
+* [Network Topology](https://github.com/1982League/NetworkAutomationLabs/blob/main/Lab%201%20-%20Cisco/layout/Network_Lab.jpg)
+* [GNS3 Network Project file](https://github.com/1982League/NetworkAutomationLabs/tree/main/Lab%201%20-%20Cisco/GNS3%20Project).
 
 ### 1.1. Initial configuration
-#### Router's physical Interfaces
+#### Router's Interfaces
 ```bash
 interface FastEthernet0/1
  ip address 192.168.20.1 255.255.255.0
