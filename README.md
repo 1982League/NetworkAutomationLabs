@@ -22,6 +22,6 @@ Make sure all GNS3 versions and GNS3 VM versions are the same[v2.2.31].
 In this section we will install network automation appliance on GNS3.
 We need to download the network automation container
 from GNS3 marketplace.
-* Download Network Automation docker container[GNS3](https://www.gns3.com/marketplace/appliances/network-automation):
-[part 1](https://www.youtube.com/watch?v=qsXDZTPnlro),
-[part 2](https://www.youtube.com/watch?v=_iuz6x2vBSw&t=24s)
+* Network Automation docker container [GNS3](https://www.gns3.com/marketplace/appliances/network-automation):
+* How to Download & import Appliance to GNS3 [Network Automation Docker](https://www.youtube.com/watch?v=qsXDZTPnlro),
+* Network Automation Configuration [Install Python, Netmiko](https://www.youtube.com/watch?v=_iuz6x2vBSw&t=24s)
