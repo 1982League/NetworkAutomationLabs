@@ -1,6 +1,6 @@
-# Router Hardware/Software Information
+# Cork_Router01's Hardware/Software Information
 ```bash
-Router R2 is started
+Router Cork_Router01 is started
   Running on server netlab with port 3080
   Local ID is 7 and server ID is 0c92cd38-e437-457c-8f4f-9937aaa1b29f
   Dynamips ID is 2
@@ -26,11 +26,16 @@ Router R2 is started
       Serial0/2 is empty
 ```
 * [Network Topology](https://github.com/1982League/NetworkAutomationLabs/blob/main/Lab%201%20-%20Cisco/layout/Network_Lab.jpg)
-* [GNS3 Network Project file](https://github.com/1982League/NetworkAutomationLabs/tree/main/Lab%201%20-%20Cisco/GNS3%20Project).
+* [GNS3 Network Project file](https://github.com/1982League/NetworkAutomationLabs/tree/main/Lab%201%20-%20Cisco/GNS3%20Project)
 
-### 1.1. Initial configuration
+### 1.1. Cork_Router01's configuration
 #### Router's Interfaces
 ```bash
+hostname Cork_Router01
+
+ip domain name netlab.net
+username netlab privilege 15 password 0 netlab
+
 interface FastEthernet0/1
  ip address 192.168.20.1 255.255.255.0
  duplex auto
@@ -73,8 +78,6 @@ interface Serial2/3
 
 #### Cork_Router01 Virtual Interface VLAN Configuration
 ```bash
-hostname Cork_Router01
-
 interface Loopback0
  ip address 1.1.1.2 255.255.255.255
 !
