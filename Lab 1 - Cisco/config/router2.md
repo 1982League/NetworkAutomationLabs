@@ -27,17 +27,12 @@ Router R2 is started
 ```
 The topology is as in figure below.
 
-![Lab_Topology](/Lab 1 - Cisco/layout/Network_Lab.jpg)
-## 1. Host Standby Router Protocol (HSRP)
+[Lab_Topology](/Lab 1 - Cisco/layout/Network_Lab.jpg)
+## Network_Lab GNS3 Project file
 The GNS3 project file is [Network_Lab](/Lab 1 - Cisco/GNS3 Project/Network_Lab.gns3).
 
-Tasks:
-- Configure HSRP for servicing the virtual IP address 10.1.1.1
-- R1 = active router, R2 = standby router
--
-
 ### 1.1. Initial configuration
-#### Internet
+#### Router's physical Interfaces
 ```bash
 interface FastEthernet0/1
  ip address 192.168.20.1 255.255.255.0
