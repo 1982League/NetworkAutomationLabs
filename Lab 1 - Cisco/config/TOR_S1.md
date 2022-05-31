@@ -37,8 +37,6 @@ QEMU VM TOR_S1 is started
        MAC address is 0c:46:96:6b:00:0e
      Gi3/3 is empty
        MAC address is 0c:46:96:6b:00:0f
-
-There is no default password and enable password. There is no default configuration present.
 ```
 ## TOR_S1's Configuration
 ```bash
