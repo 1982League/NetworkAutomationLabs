@@ -1,14 +1,34 @@
-{
- "cells": [
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "collapsed": true,
-    "pycharm": {
-     "name": "#%% md\n"
-    }
-!
-!
+# ISP1's Hardware/Software Information
+```bash
+Router ISP1 is started
+  Running on server netlab with port 3080
+  Local ID is 6 and server ID is dde1e93b-151e-4d2a-867d-652226726d07
+  Dynamips ID is 1
+  Hardware is Dynamips emulated Cisco c3725  with 256MB RAM and 256KB NVRAM
+  Console is on port 5064 and type is telnet, AUX console is on port None
+  IOS image is "c3725-adventerprisek9-mz.124-15.T14.image"
+  with no idlepc value
+  PCMCIA disks: disk0 is 0MB and disk1 is 0MB
+    slot 0 hardware is GT96100-FE with 2 ports
+      FastEthernet0/0 connected to ISP2 on port eno1
+      FastEthernet0/1 is empty
+    slot 1 hardware is NM-1FE-TX with 1 port
+      FastEthernet1/0 is empty
+    slot 2 hardware is NM-4T with 4 ports
+      Serial2/0 connected to R3 on port Serial2/0
+      Serial2/1 connected to R2 on port Serial2/1
+      Serial2/2 is empty
+      Serial2/3 is empty
+    WIC-1T installed in WIC slot 0 with 1 port
+      Serial0/0 is empty
+    WIC-2T installed in WIC slot 1 with 2 ports
+      Serial0/1 is empty
+      Serial0/2 is empty
+```
+
+### 1.1. ISP1's configuration
+```bash
+
 version 12.4
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -46,7 +66,6 @@ archive
  log config
   hidekeys
 !
-
 !
 ip tcp synwait-time 5
 ip scp server enable
@@ -156,3 +175,4 @@ line vty 0 4
 !
 !
 end
+```
