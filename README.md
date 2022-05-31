@@ -18,7 +18,7 @@ Make sure GNS3 versions and GNS3 VM versions are the same, we are using [v2.2.31
 * [How to download Cisco VIRL images for GNS3](https://www.youtube.com/watch?v=oEP5eXftWJI&ab_channel=DavidBombal)
 * [Import Cisco images to GNS3, Create Router Template and Setup](https://www.youtube.com/watch?v=dLkXxy1zWaI&ab_channel=DavidBombal)
 
-### 2. Network automation with Python3
+### 2. Network Automation with Python3
 In this section we will install network automation appliance on GNS3.
 We need to download the network automation container
 from GNS3 marketplace.
