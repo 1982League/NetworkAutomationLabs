@@ -1,0 +1,78 @@
+
+! Command: show running-config
+! device: Arista1 (vEOS-lab, EOS-4.26.5M)
+!
+! boot system flash:/vEOS-lab.swi
+!
+enable password sha512 $6$sJD1ngCEPJusNH.v$wH0N6LFcVFdIJ836dfPmwlIojxIG32YDE0cbnYkTgFrAFv6C0Ari5wPc4EtPtgDG1nVepSrQpPMqzfDY6HpHM/
+no aaa root
+!
+username netlab secret sha512 $6$BetNe74i1BI6r4o3$1O3eyTNwWj6LJS62rM5Ts5nJlOVPF1GWUADWTb4o15bQFMtziD2fYIZyXqrP05LzA0HiE97fHboGGh7Hpg6QN.
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model ribd
+!
+hostname Arista1
+!
+spanning-tree mode mstp
+!
+vlan 10,20
+!
+interface Ethernet1
+!
+interface Ethernet2
+   shutdown
+   switchport trunk allowed vlan 10,20
+   switchport mode trunk
+!
+interface Ethernet3
+   switchport access vlan 20
+!
+interface Ethernet4
+   switchport access vlan 10
+!
+interface Ethernet5
+!
+interface Ethernet6
+!
+interface Ethernet7
+!
+interface Ethernet8
+!
+interface Ethernet9
+!
+interface Ethernet10
+!
+interface Ethernet11
+!
+interface Ethernet12
+!
+interface Ethernet13
+!
+interface Management1
+!
+interface Vlan1
+   ip address 192.168.1.50/24
+!
+interface Vlan10
+   ip address 192.168.10.1/24
+!
+interface Vlan20
+   ip address 192.168.20.1/24
+!
+ip access-list 1
+!
+ip access-list standard
+   10 permit icmp any any
+!
+ip routing
+!
+ip route 0.0.0.0/0 192.168.1.1
+!
+router ospf 1
+   network 192.168.1.0/24 area 0.0.0.0
+   network 192.168.10.0/24 area 0.0.0.0
+   network 192.168.20.0/24 area 0.0.0.0
+   max-lsa 12000
+!
