@@ -1,0 +1,7 @@
+ip access-list extended no_telnet_access
+ deny tcp any any eq telnet
+ permit ip any any
+ deny ip any any
+
+ interface FastEthernet0/0
+  ip access-group no_telnet_access in
